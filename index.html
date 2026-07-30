@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Village Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            50: '#f0f7fa',
+                            100: '#e0f0f6',
+                            500: '#4a90e2',
+                            600: '#357abd',
+                            900: '#1c3d5a',
+                        },
+                        warm: '#fdfbf7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+<!-- ... existing code ... -->
+    </style>
+</head>
+<body class="text-ocean-900">
+    
+    <!-- VIEW 1: HOME PAGE -->
+    <div id="home-view" class="page-view" style="display: block;">
+        
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm sticky top-0 z-10">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex items-center space-x-2 cursor-pointer" onclick="goHome()">
+                        <i class="fa-solid fa-people-roof text-ocean-500 text-2xl"></i>
+                        <span class="font-bold text-xl tracking-tight text-ocean-900">The Village Hub</span>
+                    </div>
+                    <div class="hidden sm:flex space-x-8">
+                        <button onclick="goHome('focus')" class="text-gray-600 hover:text-ocean-500 font-medium transition-colors">This Month</button>
+                        <button onclick="goHome('vault')" class="text-gray-600 hover:text-ocean-500 font-medium transition-colors">The Vault</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Welcome Section with Family Photo -->
+        <header class="bg-ocean-50 py-12 sm:py-20 px-4">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-ocean-900 mb-4">Welcome to The Village.</h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
+                        A safe, supportive space for foster, adoptive, and busy parents to find resources, encouragement, and community. We're so glad you're here.
+                    </p>
+                    <button onclick="goHome('focus')" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-ocean-500 hover:bg-ocean-600 transition-colors">
+                        See This Month's Focus <i class="fa-solid fa-arrow-down ml-2"></i>
+                    </button>
+                </div>
+                <div class="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Happy family outdoors" class="absolute inset-0 w-full h-full object-cover" />
+                </div>
+            </div>
+        </header>
+
+        <!-- This Month's Focus (The Mega-Post) -->
+        <section id="focus" class="py-16 px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden border border-ocean-100">
+                <div class="bg-ocean-500 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fa-regular fa-calendar text-white mr-3"></i> This Month's Focus: Navigating IEPs
+                    </h2>
+                </div>
+                
+                <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Podcast & Thought -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <i class="fa-solid fa-headphones text-ocean-500 mr-2"></i> Listen
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">
+                            This month, we're listening to a fantastic episode on advocating for your child in the school system. </br></br>
+                            <strong>Quick Thought:</strong> As you listen, think about one small win your child has had at school this month.
+                        </p>
+                        <!-- Placeholder for embedded podcast -->
+                        <div class="bg-gray-100 rounded-lg p-4 text-center border-2 border-dashed border-gray-300">
+                            <p class="text-gray-500 text-sm"><i class="fa-solid fa-link"></i> Paste your Spotify/Apple Podcast Embed Link Here</p>
+                        </div>
+                    </div>
+
+                    <!-- Meetup Details -->
+                    <div class="bg-ocean-50 rounded-xl p-6 border border-ocean-100">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <i class="fa-solid fa-mug-hot text-ocean-500 mr-2"></i> The Meetup
+                        </h3>
+                        <p class="text-gray-700 mb-4">Let's get together and discuss what we learned. No pressure if you didn't finish the podcast!</p>
+                        <ul class="space-y-3 text-sm sm:text-base">
+                            <li class="flex items-start"><i class="fa-regular fa-clock mt-1 mr-3 text-ocean-500 w-4"></i> <strong class="mr-1">When:</strong> Last Wednesday of the month @ 7:00 PM</li>
+                            <li class="flex items-start"><i class="fa-solid fa-location-dot mt-1 mr-3 text-ocean-500 w-4"></i> <strong class="mr-1">Where:</strong> Black Rock Coffee Shop</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Vault (Resource Library Cards) -->
+        <section id="vault" class="py-16 bg-ocean-50 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-ocean-900 mb-4">The Resource Vault</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Browse our curated collection of tools, books, and tips to help you on your parenting journey.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Card 1: School & IEPs (Clickable) -->
+                    <button onclick="showPage('page-school')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">School & IEPs</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Navigating the school system, accommodations, and advocacy.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+                    
+                    <!-- Card 2: Foster & Adopt (Clickable) -->
+                    <button onclick="showPage('page-foster')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">Foster & Adopt</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Basics, trauma-informed care, and transition support.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+
+                    <!-- Card 3: Podcasts (Clickable) -->
+                    <button onclick="showPage('page-podcasts')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">Podcasts</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Our go-to listens for parenting in today's world.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+
+                    <!-- Card 4: Books (Clickable) -->
+                    <button onclick="showPage('page-books')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">Books</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Our favorite reads for parents, kids, and families.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+
+                    <!-- Card 5: Tech & Media (Clickable) -->
+                    <button onclick="showPage('page-tech')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">Tech & Media</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Helpful apps, websites, and YouTube channels.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+
+                    <!-- Card 6: Faith & Seasons (Clickable) -->
+                    <button onclick="showPage('page-faith')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
+                        <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-church"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2 text-center text-ocean-900">Faith & Seasons</h3>
+                        <p class="text-sm text-gray-500 text-center mb-5">Rhythms for Advent, Lent, and Holy Week at home.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 text-center w-full font-semibold text-sm text-ocean-600 group-hover:text-ocean-800">
+                            View Resources <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Share a lifesaver) -->
+        <section class="py-20 px-4 relative overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Family laughing together" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-ocean-900/85 backdrop-blur-sm"></div>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto text-center text-white">
+                <i class="fa-solid fa-life-ring text-4xl text-ocean-100 mb-4"></i>
+                <h2 class="text-3xl font-bold mb-4">Share a Lifesaver!</h2>
+                <p class="text-lg text-ocean-50 mb-8">
+                    Found a podcast, book, or simple hack that saved your sanity this week? Don't keep it to yourself! Share it with the village so we can add it to the vault.
+                </p>
+                <button onclick="openModal()" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-sm text-ocean-900 bg-white hover:bg-ocean-50 transition-colors cursor-pointer">
+                    Submit a Resource
+                </button>
+            </div>
+        </section>
+    </div> <!-- END OF HOME PAGE VIEW -->
+
+
+    <!-- ========================================== -->
+    <!-- SUB-PAGES (Hidden by default, shown via JS) -->
+    <!-- ========================================== -->
+
+    <!-- PAGE: School & IEPs -->
+    <div id="page-school" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">School & IEP Resources</h1>
+                    <p class="text-gray-600 mt-1">Tools and guides for navigating the education system.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- RESOURCE LINK 1 -->
+                <a href="https://www.understood.org" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-link text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Understood.org: Free IEP Guide</h3>
+                            <p class="text-gray-500 text-sm mt-1">A comprehensive hub for learning and thinking differences, including amazing templates for IEP meetings.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- RESOURCE LINK 2 -->
+                <!-- 💡 TO ADD MORE: Copy the <a> block above and paste it right here! -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: Foster & Adopt -->
+    <div id="page-foster" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">Foster & Adoptive Care</h1>
+                    <p class="text-gray-600 mt-1">Basics, trauma-informed care, and transition support.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- RESOURCE LINK 1 -->
+                <a href="https://backyardorphans.org/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-link text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Backyard Orphans</h3>
+                            <p class="text-gray-500 text-sm mt-1">Explore how to establish a foster care adoption support ministry in your church and make a lasting impact on children's lives.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 💡 TO ADD MORE: Copy the <a> block above and paste it right here! -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: Book Club -->
+    <div id="page-books" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">The Village Book Club</h1>
+                    <p class="text-gray-600 mt-1">Our favorite reads for parents, kids, and families.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                
+                <a href="https://www.amazon.com/s?k=habits+of+the+household&crid=3LHWB5STMQENT&sprefix=habits+o%2Caps%2C212&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_ci_hl-bn-left_2_8" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-book-open text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Habits of the Household</h3>
+                            <p class="text-gray-500 text-sm mt-1">Discover simple rhythms for discovering God in the everyday chaos of family life.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Intentional-Parenting-Exceptional-Parent-Quick-Fix/dp/1635700868/ref=sr_1_1?crid=3OTIM3FXSW42E&dib=eyJ2IjoiMSJ9.LIdP2MQfYGfJlpl6RevLSWKE3D-2oIIEyKVSegT6GtCv1gnKGWyXh5aW5O1Tbl_DuS_LHB3T03QanrJH6rchAbCFdvRDXi33XQzPQIxImaDOgpT3-ZSXRsw3Y6YnSlU5-l_irBBfP9ki4i4AB9TSXNApzcb-sSZxyYjYmDu1yFP2t0-thljUqsq4hE3k659fH6LjSgc7CuclTw4FNRja_dlCRnqofP0uWJXJkptTt8A.vMBnzEUhgFHCRvOx_RaClwXzeBctKDTUlG0eb6hFTzY&dib_tag=se&keywords=intentional+parenting&qid=1785097045&sprefix=intentional+pare%2Caps%2C220&sr=8-1" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-book-open text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Intentional Parenting</h3>
+                            <p class="text-gray-500 text-sm mt-1">By Doug Fields. Practical advice on how to raise kids with purpose rather than just surviving day-to-day.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Connected-Child-healing-adoptive-family/dp/0071475001" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-book-open text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">The Connected Child (Dr. Karyn Purvis)</h3>
+                            <p class="text-gray-500 text-sm mt-1">A phenomenal, essential read for parents welcoming children from hard places.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: Podcasts -->
+    <div id="page-podcasts" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">Podcasts</h1>
+                    <p class="text-gray-600 mt-1">Our go-to listens for parenting in today's world.</p>
+                </div>
+            </div>
+
+            <!-- Recommended Podcasts (Horizontal Scroll) -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Recommended Podcasts</h2>
+            <div class="flex overflow-x-auto space-x-6 pb-6 snap-x">
+                
+                <!-- Recommended Card 1 -->
+                <a href="https://open.spotify.com/show/3mgZ0U9bPuTxUzbaix8UEX?_authfailed=1" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">Parenting in a Tech World</h3>
+                    <p class="text-gray-500 text-sm flex-grow">Great insights on raising kids in the digital age and navigating screens safely.</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-ocean-600 text-sm font-semibold flex items-center group-hover:text-ocean-800">
+                        Listen Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- Recommended Card 2 -->
+                <a href="#" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">The Secure Family Podcast</h3>
+                    <p class="text-gray-500 text-sm flex-grow">Discussions on home security, family safety, and fatherhood.</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-ocean-600 text-sm font-semibold flex items-center group-hover:text-ocean-800">
+                        Listen Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- Recommended Card 3 -->
+                <a href="#" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">All Pro Dad</h3>
+                    <p class="text-gray-500 text-sm flex-grow">Practical advice, podcast, and emails focused on helping fathers lead their families well.</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-ocean-600 text-sm font-semibold flex items-center group-hover:text-ocean-800">
+                        Listen Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- 💡 TO ADD MORE RECOMMENDED PODCASTS: Copy one of the <a> blocks above and paste it right here! -->
+            </div>
+
+            <!-- Archived Podcast Episodes -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Archived Podcast Episodes</h2>
+            
+            <!-- 2026 Archive -->
+            <h3 class="text-lg font-bold text-ocean-800 mt-6 mb-4 flex items-center"><i class="fa-regular fa-calendar mr-2"></i> 2026</h3>
+            <div class="space-y-4 mb-8">
+                
+                <!-- June 2026 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">June</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- May 2026 -->
+                <a href="https://open.spotify.com/episode/2wZ2AYWTjlffpWbetVdDZj" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">May</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">What Kids Need to Know About God, Faith, and Fun!</h3>
+                            <p class="text-gray-500 text-sm mt-1">Focus on the Family episode integrating faith into the real world for kids.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- April 2026 -->
+                <a href="https://open.spotify.com/episode/2wZ2AYWTjlffpWbetVdDZj" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">April</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">What Kids Need to Know About God, Faith, and Fun!</h3>
+                            <p class="text-gray-500 text-sm mt-1">Focus on the Family episode integrating faith into the real world for kids.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- March 2026 -->
+                <a href="https://open.spotify.com/episode/3qNhMQQFEL4gXtLpfHHu2z" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">March</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Connection Over Compliance</h3>
+                            <p class="text-gray-500 text-sm mt-1">Empowered to Connect Podcast</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- February 2026 -->
+                <a href="https://open.spotify.com/episode/1RwkPXdv3FRhMKVyw7eJRT" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">February</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">5 Dangerous Apps Every Parent Needs to Have on Their Radar</h3>
+                            <p class="text-gray-500 text-sm mt-1">Parenting in a Tech World</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- January 2026 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">January</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- 2025 Archive -->
+            <h3 class="text-lg font-bold text-ocean-800 mt-8 mb-4 flex items-center"><i class="fa-regular fa-calendar mr-2"></i> 2025</h3>
+            <div class="space-y-4">
+                
+                <!-- December 2025 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">December</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- November 2025 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">November</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- October 2025 -->
+                <a href="https://www.focusonthefamily.com/episodes/broadcast/making-parenting-fun-part-2-of-2/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">October</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Making Parenting Fun pt. 2 with Doug Fields</h3>
+                            <p class="text-gray-500 text-sm mt-1">Practical, humorous insights on how to raise confident kids with good character.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- September 2025 -->
+                <a href="https://www.focusonthefamily.com/episodes/broadcast/making-parenting-fun-part-1-of-2/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">September</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Making Parenting Fun pt. 1 with Doug Fields</h3>
+                            <p class="text-gray-500 text-sm mt-1">Practical, humorous insights on how to raise confident kids with good character.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: Tech & Media -->
+    <div id="page-tech" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">Tech & Media</h1>
+                    <p class="text-gray-600 mt-1">Helpful apps, websites, and YouTube channels.</p>
+                </div>
+            </div>
+            
+            <!-- Apps -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Apps</h2>
+            <div class="space-y-4 mb-8">
+                <a href="https://lectio365.com/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-mobile-button text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Lectio App</h3>
+                            <p class="text-gray-500 text-sm mt-1">Pray the Bible 3x a day with guided audio and text.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://hallow.com/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-mobile-button text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Hallow</h3>
+                            <p class="text-gray-500 text-sm mt-1">A Catholic prayer and meditation app to help you pray the Bible and find peace.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.bark.us/learn/bark-home/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-mobile-button text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bark App</h3>
+                            <p class="text-gray-500 text-sm mt-1">Robust parental controls for phones and the whole home network.</p>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+
+            <!-- Websites -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Websites</h2>
+            <div class="space-y-4 mb-8">
+                <a href="http://commonsensemedia.org" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-globe text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Common Sense Media</h3>
+                            <p class="text-gray-500 text-sm mt-1">Age-based reviews and ratings for movies, games, and apps to help you make informed media choices.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://theparentcue.org/resources" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-globe text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">The Parent Cue</h3>
+                            <p class="text-gray-500 text-sm mt-1">Resources and cues to help you have meaningful faith and life conversations with your kids.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- YouTube -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">YouTube Channels</h2>
+            <div class="space-y-4">
+                <a href="https://www.youtube.com/@bibleproject/playlists" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-brands fa-youtube text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bible Project</h3>
+                            <p class="text-gray-500 text-sm mt-1">Incredible animated videos that explore the stories and themes of the Bible.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@rhythmandbible" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-brands fa-youtube text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Rhythm & Bible</h3>
+                            <p class="text-gray-500 text-sm mt-1">Engaging scripture memory and learning through music.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@StreetlightsBible/playlists" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-brands fa-youtube text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="https://www.youtube.com/@StreetlightsBible/playlists">Streetlights Audio Bible</h3>
+                            <p class="text-gray-500 text-sm mt-1">The Word of God delivered through dynamic audio and hip-hop beats.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: Faith & Seasons -->
+    <div id="page-faith" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
+        <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+                </button>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 mt-12">
+            <div class="flex items-center mb-8">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-ocean-600 text-2xl mr-4 border border-ocean-100">
+                    <i class="fa-solid fa-church"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold text-ocean-900">Faith & Seasons</h1>
+                    <p class="text-gray-600 mt-1">Resources for observing the rhythms of the church calendar as a family.</p>
+                </div>
+            </div>
+            
+            <!-- Advent -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Advent</h2>
+            <div class="space-y-4 mb-8">
+                <a href="https://www.amazon.com/SUNGEGE-Flameless-Advent-Candles-Set/dp/B0FV945669/ref=sr_1_2_sspa?crid=2JFDVTL8QHZ1W&dib=eyJ2IjoiMSJ9._DyUm-K4QtLkKMnXVe4efmezv9zRDI8xITQSnsXLwY7O0GKJ8qARezEVkHFVZFaQQqiU8uyTdEjeAmqIuXcz-ph9tZMZXrcxXaVKfUAJZujBeHlKjZHfGN9JRv5GLF9UlLGb0VXbKw-lq1YYLEyA6kIzIc6YC3jMKyrTlpkG7aXK1mXyzE0xoDLtkcD-10rOfnnLR9NyEK8ozSIzw3jISeZ29eUZPFJrBmGLem_qGqki8WctCuVSxq1JbKeOiwfTR6lo4r4AIP7qdgnVgpGNWl9NLHgZrjlhqhY3SBoJJ3U.2OMhG4zQSo41hP9uT4tDoryV95-UiUPM7q6dSIDdYwk&dib_tag=se&keywords=advent+wreath&qid=1785283075&sprefix=advent+wre%2Caps%2C212&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Wreath & Candles Guide</h3>
+                            <p class="text-gray-500 text-sm mt-1">A simple guide to lighting the Advent candles at home.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.sallylloyd-jones.com/advent-activities/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Jesus Storybook Bible Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">Perfect for young kids counting down to Christmas.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.bible.com/reading-plans/63744" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bible Project Reading Plan & Videos</h3>
+                            <p class="text-gray-500 text-sm mt-1">Explore the deeper meanings of Hope, Peace, Joy, and Love.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Lent -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Lent</h2>
+            <div class="space-y-4 mb-8">
+                <a href="https://thepurposefulmom.com/lent-bible-reading-plan-2022-free-printable.html" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-leaf text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Family Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">A structured daily or weekly reading guide for the Lent season.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.biblegateway.com/reading-plans/lent" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-leaf text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Gospels Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">Walking through the life of Jesus leading up to the crucifixion.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Holy Week -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Holy Week</h2>
+            <div class="space-y-4">
+                <a href="https://www.bible.com/reading-plans/68046-bibleproject-holy-week-easter" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-cross text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bible Project Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">A guided study focusing specifically on the final week of Jesus.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.focusonthefamily.com/wp-content/uploads/2025/03/The-Seder_FOTFmag.pdf" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-cross text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Seder Dinner Guide</h3>
+                            <p class="text-gray-500 text-sm mt-1">Resources for hosting a Christian passover meal at home.</p>
+                        </div>
+                    </div>
+                </a>
+                <!-- <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-cross text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Stations of the Cross</h3>
+                            <p class="text-gray-500 text-sm mt-1">A guide for families to reflect on the journey to the cross together.</p>
+                        </div>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Shows on all pages) -->
+    <footer class="text-ocean-50 py-8 text-center" style="background-color: #12283b;">
+        <p class="text-sm">Created with love for The Village.</p>
+    </footer>
+
+    <!-- Resource Submission Modal -->
+    <div id="resource-modal" class="fixed inset-0 bg-gray-900/75 flex items-center justify-center z-50 hidden backdrop-blur-sm px-4">
+        <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-ocean-900 mb-2">Share a Lifesaver</h3>
+            <p class="text-gray-600 mb-6 text-sm">Send us a resource that helped you, and we might add it to the vault!</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Resource Title or Link <span class="text-red-500">*</span></label>
+                    <input type="text" id="resource-input" placeholder="e.g., The Whole-Brain Child or youtube.com/..." class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none transition-all">
+                    <p id="error-msg" class="text-red-500 text-xs mt-1 hidden">Please enter a title or link so we know what to check out!</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Why do you love it? (Optional)</label>
+                    <textarea id="resource-desc" rows="3" placeholder="It really helped me understand..." class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none transition-all"></textarea>
+                </div>
+                <button onclick="submitResource()" class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-bold py-3 rounded-lg transition-colors mt-2 flex justify-center items-center">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Prepare Email
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION SCRIPT -->
+    <script>
+        function showPage(pageId) {
+            // Hide all views
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => {
+                view.style.display = 'none';
+            });
+            
+            // Show the target page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll safely to the top
+            window.scrollTo(0, 0);
+        }
+
+        function goHome(scrollToSectionId = null) {
+            // Hide all views
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => {
+                view.style.display = 'none';
+            });
+            
+            // Show Home
+            document.getElementById('home-view').style.display = 'block';
+            
+            // If they clicked a navbar link (like "The Vault"), scroll to it after returning home
+            if (scrollToSectionId) {
+                setTimeout(() => {
+                    const section = document.getElementById(scrollToSectionId);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 50); // slight delay ensures the home page has rendered first
+            } else {
+                window.scrollTo(0, 0); // Otherwise, just go to the very top
+            }
+        }
+
+        // Modal Functions for Email Submission
+        function openModal() {
+            document.getElementById('resource-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('resource-modal').classList.add('hidden');
+            document.getElementById('resource-input').value = '';
+            document.getElementById('resource-desc').value = '';
+            document.getElementById('error-msg').classList.add('hidden');
+        }
+
+        function submitResource() {
+            const resource = document.getElementById('resource-input').value.trim();
+            const desc = document.getElementById('resource-desc').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+            
+            // Require them to type at least a title/link
+            if (!resource) {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+            
+            errorMsg.classList.add('hidden');
+
+            // Format the email subject and body
+            const subject = encodeURIComponent("New Resource Submission for The Village Hub");
+            const body = encodeURIComponent(`Here is a new resource for The Village Hub!\n\nResource: ${resource}\n\nWhy I love it: ${desc}`);
+            
+            // Open their default email client with your email
+            window.location.href = `mailto:ginakgregory@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Close the popup window after a brief delay
+            setTimeout(closeModal, 500);
+        }
+    </script>
+</body>
+</html>
