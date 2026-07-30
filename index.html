@@ -14,8 +14,8 @@
                         ocean: {
                             50: '#f0f7fa',
                             100: '#e0f0f6',
-                            500: '#4a90e2',
-                            600: '#357abd',
+                            500: '#0F79BE', /* Adjusted to specifically match the screenshot blue */
+                            600: '#0c6098',
                             900: '#1c3d5a',
                         },
                         warm: '#fdfbf7'
@@ -25,7 +25,28 @@
         }
     </script>
     <style>
-<!-- ... existing code ... -->
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fdfbf7;
+        }
+        
+        /* Custom styling for the new Nav Bar to match the image */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px; /* Push the line down to the edge of the blue bar */
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: white;
+        }
+        .nav-link:hover {
+            color: #e0e0e0;
+        }
     </style>
 </head>
 <body class="text-ocean-900">
@@ -33,37 +54,42 @@
     <!-- VIEW 1: HOME PAGE -->
     <div id="home-view" class="page-view" style="display: block;">
         
-        <!-- Navigation -->
-        <nav class="bg-white shadow-sm sticky top-0 z-10">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16 items-center">
-                    <div class="flex items-center space-x-2 cursor-pointer" onclick="goHome()">
-                        <i class="fa-solid fa-people-roof text-ocean-500 text-2xl"></i>
-                        <span class="font-bold text-xl tracking-tight text-ocean-900">The Village Hub</span>
+        <!-- Navigation - Updated to match image -->
+        <nav class="bg-ocean-500 shadow-sm sticky top-0 z-20 h-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+                <div class="flex justify-between items-center h-full">
+                    <div class="flex items-center space-x-3 cursor-pointer" onclick="goHome()">
+                        <span class="font-normal text-xl text-white">The Village Hub</span>
                     </div>
-                    <div class="hidden sm:flex space-x-8">
-                        <button onclick="goHome('focus')" class="text-gray-600 hover:text-ocean-500 font-medium transition-colors">This Month</button>
-                        <button onclick="goHome('vault')" class="text-gray-600 hover:text-ocean-500 font-medium transition-colors">The Vault</button>
+                    <div class="hidden sm:flex space-x-8 text-white h-full items-center">
+                        <button onclick="goHome()" class="nav-link active font-normal transition-colors">Home</button>
+                        <button onclick="goHome('focus')" class="nav-link font-normal transition-colors">Monthly Podcasts</button>
+                        <button onclick="goHome('vault')" class="nav-link font-normal transition-colors">Resource Vault</button>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <!-- Welcome Section with Family Photo -->
-        <header class="bg-ocean-50 py-12 sm:py-20 px-4">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-ocean-900 mb-4">Welcome to The Village.</h1>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
-                        A safe, supportive space for foster, adoptive, and busy parents to find resources, encouragement, and community. We're so glad you're here.
-                    </p>
-                    <button onclick="goHome('focus')" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-ocean-500 hover:bg-ocean-600 transition-colors">
-                        See This Month's Focus <i class="fa-solid fa-arrow-down ml-2"></i>
-                    </button>
-                </div>
-                <div class="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Happy family outdoors" class="absolute inset-0 w-full h-full object-cover" />
-                </div>
+        <!-- Welcome Section - Updated to match image layout -->
+        <header class="relative py-24 sm:py-32 px-4 flex items-center justify-center">
+            <!-- Background Image (Wooden desk/nature vibe) -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=2000&q=80" alt="Wooden desk with notebook" class="w-full h-full object-cover" />
+                <!-- Subtle dark overlay to make white text readable -->
+                <div class="absolute inset-0 bg-black/30"></div> 
+            </div>
+            
+            <div class="relative z-10 text-center w-full max-w-4xl mx-auto">
+                <h1 class="text-6xl sm:text-7xl font-bold text-white mb-6 drop-shadow-lg leading-tight tracking-tight">
+                    Welcome to The<br>Village.
+                </h1>
+                <!-- Optional: Keep the intro text below if desired, or remove to match image exactly -->
+                <p class="text-xl sm:text-2xl text-white/90 mb-10 leading-relaxed font-medium drop-shadow-md hidden">
+                    A safe, supportive space for foster, adoptive, and busy parents to find resources, encouragement, and community.
+                </p>
+                <button onclick="goHome('focus')" class="hidden inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-sm shadow-sm text-ocean-900 bg-white hover:bg-gray-100 transition-colors">
+                    See This Month's Focus <i class="fa-solid fa-arrow-down ml-2"></i>
+                </button>
             </div>
         </header>
 
