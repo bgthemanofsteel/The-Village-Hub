@@ -71,25 +71,24 @@
         </nav>
 
         <!-- Welcome Section - Updated to match image layout -->
-        <header class="relative py-24 sm:py-32 px-4 flex items-center justify-center">
-            <!-- Background Image (Wooden desk/nature vibe) -->
+        <header class="relative min-h-[60vh] px-4 flex flex-col">
+            <!-- Background Image -->
             <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?auto=format&fit=crop&w=2000&q=80" alt="Wooden desk with notebook" class="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Family on the beach" class="w-full h-full object-cover" />
                 <!-- Subtle dark overlay to make white text readable -->
-                <div class="absolute inset-0 bg-black/30"></div> 
+                <div class="absolute inset-0 bg-black/40"></div> 
             </div>
             
-            <div class="relative z-10 text-center w-full max-w-4xl mx-auto">
-                <h1 class="text-6xl sm:text-7xl font-bold text-white mb-6 drop-shadow-lg leading-tight tracking-tight">
+            <div class="relative z-10 text-center w-full max-w-4xl mx-auto pt-16 sm:pt-20 flex-grow flex flex-col justify-between pb-12">
+                <h1 class="text-6xl sm:text-7xl font-bold text-white drop-shadow-lg leading-tight tracking-tight">
                     Welcome to <br>The Village.
                 </h1>
                 
-                <p class="text-xl sm:text-2xl text-white/90 mb-10 leading-relaxed font-medium drop-shadow-md hidden">
-                    A ministry of Bridge Church. A safe, supportive space for foster, adoptive, and busy parents to find resources, encouragement, and community.
-                </p>
-                <button onclick="goHome('focus')" class="hidden inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-sm shadow-sm text-ocean-900 bg-white hover:bg-gray-100 transition-colors">
-                    See This Month's Focus <i class="fa-solid fa-arrow-down ml-2"></i>
-                </button>
+                <div class="mt-auto pt-16">
+                    <p class="text-xl sm:text-2xl text-white/95 leading-relaxed font-semibold drop-shadow-md">
+                        A ministry of Bridge Church. 
+                    </p>
+                </div>
             </div>
         </header>
 
