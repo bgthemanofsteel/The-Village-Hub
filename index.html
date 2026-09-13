@@ -14,7 +14,7 @@
                         ocean: {
                             50: '#f0f7fa',
                             100: '#e0f0f6',
-                            500: '#1a73e8',
+                            500: '#1a73e8', /* Google Sites Blue */
                             600: '#155dbb',
                             900: '#1c3d5a',
                         },
@@ -29,6 +29,8 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #fdfbf7;
         }
+        
+        /* Custom styling for the Nav Bar */
         .nav-link {
             position: relative;
             padding-bottom: 4px;
@@ -36,7 +38,7 @@
         .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -16px;
+            bottom: -16px; 
             left: 0;
             width: 100%;
             height: 4px;
@@ -48,13 +50,16 @@
     </style>
 </head>
 <body class="text-ocean-900">
-
+    
+    <!-- VIEW 1: HOME PAGE -->
     <div id="home-view" class="page-view" style="display: block;">
         
+        <!-- Navigation -->
         <nav class="bg-ocean-500 shadow-sm sticky top-0 z-20 h-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
                 <div class="flex justify-between items-center h-full">
                     <a href="https://www.bridge.church" target="_blank" class="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity">
+                        <!-- Bridge Church Logo -->
                         <img src="https://www.bridge.church/wp-content/uploads/2026/02/Web-New-1.png" alt="Bridge Church Logo" class="h-10 w-auto" />
                     </a>
                     <div class="hidden sm:flex space-x-8 text-white h-full items-center">
@@ -66,7 +71,9 @@
             </div>
         </nav>
 
+        <!-- Welcome Section -->
         <header class="relative min-h-[60vh] px-4 flex flex-col">
+            <!-- Background Image -->
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Family on the beach" class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-black/40"></div> 
@@ -88,6 +95,7 @@
             </div>
         </header>
 
+        <!-- This Month's Focus (The Mega-Post) -->
         <section id="focus" class="py-16 px-4">
             <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden border border-ocean-100">
                 <div class="bg-ocean-500 px-6 py-4">
@@ -97,6 +105,7 @@
                 </div>
                 
                 <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Podcast & Thought -->
                     <div>
                         <h3 class="text-xl font-bold mb-3 flex items-center">
                             <i class="fa-solid fa-play text-ocean-500 mr-2"></i> Watch / Listen
@@ -105,11 +114,13 @@
                             This month, we're diving into Doug Fields' series on moving away from "quick-fix" parenting and learning how to parent with a long-term plan in mind. <br><br>
                             <strong>Quick Thought:</strong> "Kids borrow their parents' structure until they develop their own."
                         </p>
+                        <!-- Embedded YouTube Video -->
                         <div class="relative w-full overflow-hidden rounded-lg shadow-sm" style="padding-top: 56.25%;">
                             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/WcSAPsgidQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
 
+                    <!-- Meetup Details -->
                     <div class="bg-ocean-50 rounded-xl p-6 border border-ocean-100">
                         <h3 class="text-xl font-bold mb-3 flex items-center">
                             <i class="fa-solid fa-mug-hot text-ocean-500 mr-2"></i> The Meetup
@@ -124,6 +135,7 @@
             </div>
         </section>
 
+        <!-- The Vault (Resource Library Cards) -->
         <section id="vault" class="py-16 bg-ocean-50 px-4">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
@@ -132,6 +144,8 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Card 1: School & IEPs (Clickable) -->
                     <button onclick="showPage('page-school')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-school"></i>
@@ -143,6 +157,7 @@
                         </div>
                     </button>
                     
+                    <!-- Card 2: Foster & Adopt (Clickable) -->
                     <button onclick="showPage('page-foster')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-hands-holding-child"></i>
@@ -154,6 +169,7 @@
                         </div>
                     </button>
 
+                    <!-- Card 3: Podcasts (Clickable) -->
                     <button onclick="showPage('page-podcasts')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-microphone-lines"></i>
@@ -165,6 +181,7 @@
                         </div>
                     </button>
 
+                    <!-- Card 4: Books (Clickable) -->
                     <button onclick="showPage('page-books')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-book"></i>
@@ -176,6 +193,7 @@
                         </div>
                     </button>
 
+                    <!-- Card 5: Tech & Media (Clickable) -->
                     <button onclick="showPage('page-tech')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-mobile-screen"></i>
@@ -187,6 +205,7 @@
                         </div>
                     </button>
 
+                    <!-- Card 6: Faith & Seasons (Clickable) -->
                     <button onclick="showPage('page-faith')" class="w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all p-6 border border-ocean-100 hover:border-ocean-500 flex flex-col h-full group text-left cursor-pointer">
                         <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mx-auto mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-church"></i>
@@ -201,6 +220,7 @@
             </div>
         </section>
 
+        <!-- Call to Action (Share a lifesaver) -->
         <section class="py-20 px-4 relative overflow-hidden">
             <div class="absolute inset-0">
                 <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Family laughing together" class="w-full h-full object-cover" />
@@ -218,12 +238,18 @@
                 </button>
             </div>
         </section>
-    </div>
+    </div> <!-- END OF HOME PAGE VIEW -->
 
+
+    <!-- ========================================== -->
+    <!-- SUB-PAGES (Hidden by default, shown via JS) -->
+    <!-- ========================================== -->
+
+    <!-- PAGE: School & IEPs -->
     <div id="page-school" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -240,6 +266,7 @@
             </div>
             
             <div class="space-y-4">
+                <!-- RESOURCE LINK 1 -->
                 <a href="https://www.understood.org" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
                     <div class="flex items-start">
                         <i class="fa-solid fa-link text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
@@ -253,10 +280,11 @@
         </div>
     </div>
 
+    <!-- PAGE: Foster & Adopt -->
     <div id="page-foster" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -273,6 +301,7 @@
             </div>
             
             <div class="space-y-4">
+                <!-- RESOURCE LINK 1 -->
                 <a href="https://backyardorphans.org/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
                     <div class="flex items-start">
                         <i class="fa-solid fa-link text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
@@ -286,10 +315,11 @@
         </div>
     </div>
 
+    <!-- PAGE: Book Club -->
     <div id="page-books" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -306,7 +336,7 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Book 1 -->
+                
                 <a href="https://www.amazon.com/s?k=habits+of+the+household&crid=3LHWB5STMQENT&sprefix=habits+o%2Caps%2C212&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_ci_hl-bn-left_2_8" target="_blank" class="bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all overflow-hidden flex group">
                     <div class="w-1/3 bg-gray-100 relative min-h-[160px]">
                         <img src="https://m.media-amazon.com/images/I/612KkArgKdL._AC_AIweblab1378949,T3_FMavif_SF516.0,327.0_PQ65_.jpg?aicid=productui-image-1" alt="Habits of the Household" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -318,7 +348,6 @@
                     </div>
                 </a>
 
-                <!-- Book 2 -->
                 <a href="https://www.amazon.com/Intentional-Parenting-Exceptional-Parent-Quick-Fix/dp/1635700868" target="_blank" class="bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all overflow-hidden flex group">
                     <div class="w-1/3 bg-gray-100 relative min-h-[160px]">
                         <img src="https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/71oNJ0nVnaL._SL1500_.jpg" alt="Intentional Parenting" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -330,7 +359,6 @@
                     </div>
                 </a>
 
-                <!-- Book 3 -->
                 <a href="https://www.amazon.com/Connected-Child-healing-adoptive-family/dp/0071475001" target="_blank" class="bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all overflow-hidden flex group">
                     <div class="w-1/3 bg-gray-100 relative min-h-[160px]">
                         <img src="https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/612bifZqCaL._SL1360_.jpg" alt="The Connected Child" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -341,14 +369,16 @@
                         <p class="text-gray-500 text-sm">A phenomenal, essential read for parents welcoming children from hard places.</p>
                     </div>
                 </a>
+
             </div>
         </div>
     </div>
 
+    <!-- PAGE: Podcasts -->
     <div id="page-podcasts" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -364,11 +394,14 @@
                 </div>
             </div>
 
+            <!-- Recommended Podcasts (Horizontal Scroll) -->
             <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Recommended Podcasts</h2>
             <div class="flex overflow-x-auto space-x-6 pb-6 snap-x">
-                <a href="https://open.spotify.com/show/3mgZ0U9bPuTxUzbaix8UEX" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
-                    <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-star"></i>
+                
+                <!-- Recommended Card 1 -->
+                <a href="https://open.spotify.com/show/3mgZ0U9bPuTxUzbaix8UEX?_authfailed=1" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-16 h-16 rounded-lg overflow-hidden mb-4 bg-gray-100 shadow-sm flex-shrink-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfWcegiWF4W06AI8pkJuYaUi_vgVF08asJ7uCtuLGcMorXcJD4THAwd9vY&s=10" alt="Parenting in a Tech World" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
                     </div>
                     <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">Parenting in a Tech World</h3>
                     <p class="text-gray-500 text-sm flex-grow">Great insights on raising kids in the digital age and navigating screens safely.</p>
@@ -377,9 +410,10 @@
                     </div>
                 </a>
 
-                <a href="#" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
-                    <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-award"></i>
+                <!-- Recommended Card 2 -->
+                <a href="https://open.spotify.com/show/3hsDU7j6m1lMdo8b6HwP5Z" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-16 h-16 rounded-lg overflow-hidden mb-4 bg-gray-100 shadow-sm flex-shrink-0">
+                        <img src="https://i.scdn.co/image/ab6765630000ba8ad2e68f9bbaeb58656f8fcd92" alt="The Secure Family Podcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
                     </div>
                     <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">The Secure Family Podcast</h3>
                     <p class="text-gray-500 text-sm flex-grow">Discussions on home security, family safety, and fatherhood.</p>
@@ -387,14 +421,162 @@
                         Listen Now <i class="fa-solid fa-arrow-right ml-2"></i>
                     </div>
                 </a>
+
+                <!-- Recommended Card 3 -->
+                <a href="https://open.spotify.com/show/5BOMICiTn6tAL6YAPXAqv0" target="_blank" class="min-w-[280px] sm:min-w-[300px] snap-start bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all p-6 flex flex-col group cursor-pointer">
+                    <div class="w-16 h-16 rounded-lg overflow-hidden mb-4 bg-gray-100 shadow-sm flex-shrink-0">
+                        <img src="https://yt3.googleusercontent.com/W3yegLxDM0N65lJ2ZifC2mWHylqLw8urRFZq4zlMxtxp7tCW8eK0H614_gmGN5WrT8Qw4_b1Rg=s900-c-k-c0x00ffffff-no-rj" alt="All Pro Dad" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600 mb-2">All Pro Dad</h3>
+                    <p class="text-gray-500 text-sm flex-grow">Practical advice, podcast, and emails focused on helping fathers lead their families well.</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-ocean-600 text-sm font-semibold flex items-center group-hover:text-ocean-800">
+                        Listen Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Archived Podcast Episodes -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Archived Podcast Episodes</h2>
+            
+            <!-- 2026 Archive -->
+            <h3 class="text-lg font-bold text-ocean-800 mt-6 mb-4 flex items-center"><i class="fa-regular fa-calendar mr-2"></i> 2026</h3>
+            <div class="space-y-4 mb-8">
+                
+                <!-- June 2026 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">June</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- May 2026 -->
+                <a href="https://open.spotify.com/episode/2wZ2AYWTjlffpWbetVdDZj" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">May</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">What Kids Need to Know About God, Faith, and Fun!</h3>
+                            <p class="text-gray-500 text-sm mt-1">Focus on the Family episode integrating faith into the real world for kids.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- April 2026 -->
+                <a href="https://podcasts.apple.com/us/podcast/focus-on-the-family-with-jim-daly/id290803395?i=1000756711173" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">April</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Focus on the Family with Jim Daly</h3>
+                            <p class="text-gray-500 text-sm mt-1">Apple Podcasts episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- March 2026 -->
+                <a href="https://podcasts.apple.com/us/podcast/empowered-to-connect-podcast/id1522355545?i=1000744942425" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">March</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Empowered to Connect Podcast</h3>
+                            <p class="text-gray-500 text-sm mt-1">Apple Podcasts episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- February 2026 -->
+                <a href="https://podcasts.apple.com/us/podcast/parenting-in-a-tech-world/id1791177901?i=1000704582320" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">February</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Parenting in a Tech World</h3>
+                            <p class="text-gray-500 text-sm mt-1">Apple Podcasts episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- January 2026 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">January</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- 2025 Archive -->
+            <h3 class="text-lg font-bold text-ocean-800 mt-8 mb-4 flex items-center"><i class="fa-regular fa-calendar mr-2"></i> 2025</h3>
+            <div class="space-y-4">
+                
+                <!-- December 2025 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">December</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- November 2025 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">November</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- October 2025 -->
+                <a href="#" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group opacity-75">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-headphones text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">October</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Link Coming Soon</h3>
+                            <p class="text-gray-500 text-sm mt-1">Check back later to update this episode link.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- September 2025 -->
+                <a href="https://www.focusonthefamily.com/episodes/broadcast/making-parenting-fun-part-1-of-2/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-play text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <div class="text-xs font-bold text-ocean-500 uppercase tracking-wider mb-1">September</div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Doug Fields</h3>
+                            <p class="text-gray-500 text-sm mt-1">Practical, humorous insights on how to raise confident kids with good character.</p>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
     </div>
 
+    <!-- PAGE: Tech & Media -->
     <div id="page-tech" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -434,10 +616,11 @@
         </div>
     </div>
 
+    <!-- PAGE: Faith & Seasons -->
     <div id="page-faith" class="page-view bg-ocean-50 min-h-screen pb-16" style="display: none;">
         <div class="bg-white shadow-sm py-4 px-4 sticky top-0 z-10">
             <div class="max-w-4xl mx-auto flex items-center">
-                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors cursor-pointer">
+                <button onclick="goHome()" class="text-ocean-600 hover:text-ocean-900 font-medium flex items-center transition-colors">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
                 </button>
             </div>
@@ -453,9 +636,10 @@
                 </div>
             </div>
             
+            <!-- Advent -->
             <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Advent</h2>
             <div class="space-y-4 mb-8">
-                <a href="https://www.amazon.com/dp/B0FV945669" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                <a href="https://www.amazon.com/SUNGEGE-Flameless-Advent-Candles-Set/dp/B0FV945669/ref=sr_1_2_sspa?crid=2JFDVTL8QHZ1W&dib=eyJ2IjoiMSJ9._DyUm-K4QtLkKMnXVe4efmezv9zRDI8xITQSnsXLwY7O0GKJ8qARezEVkHFVZFaQQqiU8uyTdEjeAmqIuXcz-ph9tZMZXrcxXaVKfUAJZujBeHlKjZHfGN9JRv5GLF9UlLGb0VXbKw-lq1YYLEyA6kIzIc6YC3jMKyrTlpkG7aXK1mXyzE0xoDLtkcD-10rOfnnLR9NyEK8ozSIzw3jISeZ29eUZPFJrBmGLem_qGqki8WctCuVSxq1JbKeOiwfTR6lo4r4AIP7qdgnVgpGNWl9NLHgZrjlhqhY3SBoJJ3U.2OMhG4zQSo41hP9uT4tDoryV95-UiUPM7q6dSIDdYwk&dib_tag=se&keywords=advent+wreath&qid=1785283075&sprefix=advent+wre%2Caps%2C212&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
                     <div class="flex items-start">
                         <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
                         <div>
@@ -464,17 +648,83 @@
                         </div>
                     </div>
                 </a>
+                <a href="https://www.sallylloyd-jones.com/advent-activities/" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Jesus Storybook Bible Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">Perfect for young kids counting down to Christmas.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.bible.com/reading-plans/63744" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-star text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bible Project Reading Plan & Videos</h3>
+                            <p class="text-gray-500 text-sm mt-1">Explore the deeper meanings of Hope, Peace, Joy, and Love.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Lent -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Lent</h2>
+            <div class="space-y-4 mb-8">
+                <a href="https://thepurposefulmom.com/lent-bible-reading-plan-2022-free-printable.html" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-leaf text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Family Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">A structured daily or weekly reading guide for the Lent season.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.biblegateway.com/reading-plans/lent" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-leaf text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Gospels Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">Walking through the life of Jesus leading up to the crucifixion.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Holy Week -->
+            <h2 class="text-xl font-bold text-ocean-900 mt-8 mb-4 border-b border-ocean-100 pb-2">Holy Week</h2>
+            <div class="space-y-4">
+                <a href="https://www.bible.com/reading-plans/68046-bibleproject-holy-week-easter" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-cross text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Bible Project Reading Plan</h3>
+                            <p class="text-gray-500 text-sm mt-1">A guided study focusing specifically on the final week of Jesus.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.focusonthefamily.com/wp-content/uploads/2025/03/The-Seder_FOTFmag.pdf" target="_blank" class="block p-6 bg-white rounded-xl shadow-sm border border-ocean-100 hover:border-ocean-500 hover:shadow-md transition-all group">
+                    <div class="flex items-start">
+                        <i class="fa-solid fa-cross text-ocean-400 mt-1 mr-4 text-xl group-hover:text-ocean-600"></i>
+                        <div>
+                            <h3 class="font-bold text-lg text-ocean-900 group-hover:text-ocean-600">Seder Dinner Guide</h3>
+                            <p class="text-gray-500 text-sm mt-1">Resources for hosting a Christian passover meal at home.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- Footer (Shows on all pages) -->
     <footer class="text-ocean-50 py-8 text-center" style="background-color: #12283b;">
         <p class="text-sm">Created with love for The Village.</p>
     </footer>
 
+    <!-- Resource Submission Modal -->
     <div id="resource-modal" class="fixed inset-0 bg-gray-900/75 flex items-center justify-center z-50 hidden backdrop-blur-sm px-4">
         <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <div class="w-12 h-12 bg-ocean-100 rounded-full flex items-center justify-center mb-4 text-ocean-600 text-xl">
@@ -493,42 +743,53 @@
                     <label class="block text-sm font-medium text-gray-700 mb-1">Why do you love it? (Optional)</label>
                     <textarea id="resource-desc" rows="3" placeholder="It really helped me understand..." class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500 outline-none transition-all"></textarea>
                 </div>
-                <button onclick="submitResource()" class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-bold py-3 rounded-lg transition-colors mt-2 flex justify-center items-center cursor-pointer">
+                <button onclick="submitResource()" class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-bold py-3 rounded-lg transition-colors mt-2 flex justify-center items-center">
                     <i class="fa-solid fa-paper-plane mr-2"></i> Prepare Email
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- NAVIGATION SCRIPT -->
     <script>
         function showPage(pageId) {
+            // Hide all views
             const views = document.querySelectorAll('.page-view');
             views.forEach(view => {
                 view.style.display = 'none';
             });
+            
+            // Show the target page
             document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll safely to the top
             window.scrollTo(0, 0);
         }
 
         function goHome(scrollToSectionId = null) {
+            // Hide all views
             const views = document.querySelectorAll('.page-view');
             views.forEach(view => {
                 view.style.display = 'none';
             });
+            
+            // Show Home
             document.getElementById('home-view').style.display = 'block';
             
+            // If they clicked a navbar link (like "The Vault"), scroll to it after returning home
             if (scrollToSectionId) {
                 setTimeout(() => {
                     const section = document.getElementById(scrollToSectionId);
                     if (section) {
                         section.scrollIntoView({ behavior: 'smooth' });
                     }
-                }, 50);
+                }, 50); // slight delay ensures the home page has rendered first
             } else {
-                window.scrollTo(0, 0);
+                window.scrollTo(0, 0); // Otherwise, just go to the very top
             }
         }
 
+        // Modal Functions for Email Submission
         function openModal() {
             document.getElementById('resource-modal').classList.remove('hidden');
         }
@@ -545,15 +806,22 @@
             const desc = document.getElementById('resource-desc').value.trim();
             const errorMsg = document.getElementById('error-msg');
             
+            // Require them to type at least a title/link
             if (!resource) {
                 errorMsg.classList.remove('hidden');
                 return;
             }
             
             errorMsg.classList.add('hidden');
+
+            // Format the email subject and body
             const subject = encodeURIComponent("New Resource Submission for The Village Hub");
             const body = encodeURIComponent(`Here is a new resource for The Village Hub!\n\nResource: ${resource}\n\nWhy I love it: ${desc}`);
+            
+            // Open their default email client with your email
             window.location.href = `mailto:ginakgregory@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Close the popup window after a brief delay
             setTimeout(closeModal, 500);
         }
     </script>
